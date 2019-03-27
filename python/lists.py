@@ -1,6 +1,6 @@
 # https://www.hackerrank.com/challenges/python-lists/problem
-# Started 19/03/27
-# Unsolved
+# Started   19/03/27
+# Solved    19/03/27
 
 N = int(input())
 result = []
