@@ -1,53 +1,26 @@
 # https://www.hackerrank.com/challenges/the-minion-game/problem?h_r=next-challenge&h_v=zen
 # started 19/3/30
 
-# 1. 자음/모음을 인덱스로 분류해서 저장
-# 2. 각각 꺼내면서 +1 하며 단어를 만들고 dictionary에 있는지 검사
-# 2-1. Dict에 없으면 생성
-# 2-2. Dict에 있으면 +1
+# substring의 개수를 세는 것은 함정이다.
+# 규칙을 생각해보면 각 인덱스부터 한개씩 늘어나는 것은 무조건 카운트되기 때문에 
+# 처음 자음/모음을 구분할 때 총 길이에서 뺀 만큼을 더해버리면 된다.
 
-VOWEL = set(['A','E','I','O,','U'])
-
-def isvowel(word: "str") -> bool:
-    return word in VOWEL
-
-def get_score(S, idx_list) -> int:
-    l = len(S)
-    word_dict = {}
-    for idx in idx_list:
-        for j in range(idx+1, l+1):
-            if S[idx:j] in word_dict:
-                word_dict[S[idx:j]] += 1
-            else:
-                word_dict[S[idx:j]] = 1
-    return sum(word_dict.values())
+VOWEL = set(['A','E','I','O','U'])
 
 string = input()
-s_list = list(string)
-vowel_idx = []
-conso_idx = []
+l = len(string)
+vowel_sum = 0
+conso_sum = 0
 
-for i in range(0,len(s_list)):
-    if isvowel(string[i]):
-        vowel_idx.append(i)
+for i in range(l):
+    if string[i] in VOWEL:
+        vowel_sum += (l-i)
     else: 
-        conso_idx.append(i)
+        conso_sum += (l-i)
 
-stuart = ("Stuart", get_score(string, conso_idx))
-kevin = ("Kevin", get_score(string, vowel_idx))
-
-if stuart[1] > kevin[1]:
-    print("{0} {1}".format(stuart[0], stuart[1]))
+if conso_sum > vowel_sum:
+    print("{0} {1}".format("Stuart", conso_sum))
+elif conso_sum < vowel_sum:
+    print("{0} {1}".format("Kevin", vowel_sum))
 else:
-    print("{0} {1}".format(kevin[0], kevin[1]))
-
-
-
-# def repeats(whole: "str", sub: "str") -> int:
-#     whole_l = len(whole)
-#     sub_l = len(sub)
-#     repeat_count = 0
-#     for i in range(0, whole_l-sub_l+1):
-#         if sub == whole[i:i+sub_l]:
-#             repeat_count += 1
-#     return repeat_count
+    print("Draw")
