@@ -1,5 +1,6 @@
 # https://www.hackerrank.com/challenges/the-minion-game/problem?h_r=next-challenge&h_v=zen
 # started 19/3/30
+# sovled 19/4/11
 
 # substring의 개수를 세는 것은 함정이다.
 # 규칙을 생각해보면 각 인덱스부터 한개씩 늘어나는 것은 무조건 카운트되기 때문에 
