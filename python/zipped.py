@@ -1,6 +1,6 @@
 # https://www.hackerrank.com/challenges/zipped/problem
-# started 5/27
-# solved  5/27
+# started 5/27/2019
+# solved  5/27/2019
 
 (N, X) = tuple(map(int,input().split(" ")))
 scores = []
