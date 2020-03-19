@@ -1,5 +1,5 @@
 # https://www.hackerrank.com/challenges/birthday-cake-candles/problem
-# started 20/3/20
+# solved 20/3/20
 
 def birthdayCakeCandles(ar):
     tallest = -1
